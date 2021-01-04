@@ -5,6 +5,7 @@ public class CopyFor {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		
 		int [] a = new int[5];
 		Random numeros = new Random();
 		
@@ -15,15 +16,24 @@ public class CopyFor {
 		}
 		System.out.println();
 		
-		int [] b = new int[a.length];
+		//***using method FOR
+		//int [] b = new int[a.length];
+		//for (int i=0; i < a.length; i++)
+			//b[i] = a[i];
 		
-		for (int i=0; i < a.length; i++)
-			b[i] = a[i];
+		//***Using method CLONE
+		//int [] b = a.clone();
+		
+		//***Using method System.arrayCopy
+		//int [] b = new int[a.length];            
+		//System.arraycopy(a, 0, b, 0, a.length); 
 		
 		for (int i = 0; i < a.length; i++)
 		{
 			System.out.println("B[" + i + "]=" + b[i]);
 		}
+		
+		//============================================================
 
 	}
 }
