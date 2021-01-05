@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 
 public class CopyFor {
@@ -27,6 +28,9 @@ public class CopyFor {
 		//***Using method System.arrayCopy
 		//int [] b = new int[a.length];            
 		//System.arraycopy(a, 0, b, 0, a.length); 
+		
+		//*** Using method Arrays.CopyOf
+		//int [] b = Arrays.copyOf(a, a.length); 
 		
 		for (int i = 0; i < a.length; i++)
 		{
