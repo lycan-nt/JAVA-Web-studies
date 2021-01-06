@@ -31,6 +31,10 @@ public class ClassMain {
 		System.out.println(s4.contains("To"));
 		
 		System.out.println("Hello".length());
+		
+		String s5 = "Felipe D. Santos";
+		System.out.println(s5.toUpperCase());
+		System.out.println(s5.toLowerCase());
 		//==================================================
 
 	}
