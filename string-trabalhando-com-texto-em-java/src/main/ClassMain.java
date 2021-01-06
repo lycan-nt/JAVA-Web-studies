@@ -23,6 +23,9 @@ public class ClassMain {
 		String s2 = "arara";
 		s2 = s2.replace('a', 'e');
 		System.out.println(s2);
+		
+		String s3 = " Remove Space";
+		s3 = s3.trim();
 		//==================================================
 
 	}
