@@ -3,6 +3,8 @@ package main;
 public class ClassMain {
 
 	public static void main(String[] args) {
+		
+		//***declaring
 		String myString = new String();
 		myString = "JAVA";
 		String myString2 = "JAVA";
@@ -11,6 +13,17 @@ public class ClassMain {
 		
 		char[] myChars = new char[] {'J', 'A', 'V', 'A'};
 		String myString5 = new String(myChars);
+		//================================================
+		
+		//***useful methods
+		String s = "This comment was bad";
+		s = s.replace("bad", "very BAD");
+		System.out.println(s);
+		
+		String s2 = "arara";
+		s2 = s2.replace('a', 'e');
+		System.out.println(s2);
+		//==================================================
 
 	}
 
