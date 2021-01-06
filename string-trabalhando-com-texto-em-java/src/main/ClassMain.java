@@ -29,6 +29,8 @@ public class ClassMain {
 		
 		String s4 = "Hello World Go To Next Dev";
 		System.out.println(s4.contains("To"));
+		
+		System.out.println("Hello".length());
 		//==================================================
 
 	}
