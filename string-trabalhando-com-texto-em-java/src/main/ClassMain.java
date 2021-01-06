@@ -26,6 +26,9 @@ public class ClassMain {
 		
 		String s3 = " Remove Space";
 		s3 = s3.trim();
+		
+		String s4 = "Hello World Go To Next Dev";
+		System.out.println(s4.contains("To"));
 		//==================================================
 
 	}
