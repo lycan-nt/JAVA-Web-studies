@@ -6,9 +6,13 @@ public class Correntista {
 	
 	public Correntista (String nome) 
 	{
-		this.codigo = proxCod;
-		proxCod++;
+		this.codigo = getProxCod();
 		this.nome = nome;
+	}
+	
+	public static int getProxCod()
+	{
+		return proxCod++;
 	}
 	
 	public int getCodigo() 
