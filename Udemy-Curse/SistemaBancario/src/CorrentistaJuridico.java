@@ -3,10 +3,10 @@ public class CorrentistaJuridico extends Correntista{
 	
 	private String nomeResponsavel;
 	
-	public CorrentistaJuridico (String nome, String nomeResponsaString) 
+	public CorrentistaJuridico (String nome, String nomeResponsavel) 
 	{
 		super(nome);
-		this.nomeResponsavel = nomeResponsaString;
+		this.nomeResponsavel = nomeResponsavel;
 	}
 	
 	public String getNomeResponsavel(String nomeResponsavel)
