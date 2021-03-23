@@ -5,4 +5,9 @@ public class CorrentistaFisico extends Correntista{
 	{
 		super(nome);
 	}
+	
+	public void exibiIdentificacao() 
+	{
+		System.out.println ("Eu sou um correntista Fisico: " + getCodigo() + " - " + getNome());
+	}
 }

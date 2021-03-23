@@ -10,6 +10,11 @@ public class Correntista {
 		this.nome = nome;
 	}
 	
+	public void exibiIdentificacao() 
+	{
+		System.out.println ("Eu sou um correntista: " + getCodigo() + " - " + getNome());
+	}
+	
 	public static int getProxCod()
 	{
 		return proxCod++;

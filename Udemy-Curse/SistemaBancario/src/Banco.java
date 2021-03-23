@@ -13,7 +13,8 @@ public class Banco {
 		CorrentistaJuridico c3 = new CorrentistaJuridico("Sys-Ala", "Alailton");
 		listaClientes.add(c3);
 		
-		System.out.println("Name: " + c.getNome() + " " + "Cod: " + c.getCodigo());
-		System.out.println("Name: " + c2.getNome() + " " + "Cod: " + c2.getCodigo());
+		c.exibiIdentificacao();
+		c2.exibiIdentificacao();
+		c3.exibiIdentificacao();
 	}
 }

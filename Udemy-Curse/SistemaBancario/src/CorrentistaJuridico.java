@@ -9,6 +9,11 @@ public class CorrentistaJuridico extends Correntista{
 		this.nomeResponsavel = nomeResponsavel;
 	}
 	
+	public void exibiIdentificacao() 
+	{
+		System.out.println ("Eu sou um correntista Juridico: " + getCodigo() + " - " + getNome());
+	}
+	
 	public String getNomeResponsavel(String nomeResponsavel)
 	{
 		return nomeResponsavel;
