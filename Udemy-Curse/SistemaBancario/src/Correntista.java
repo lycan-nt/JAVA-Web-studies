@@ -1,5 +1,5 @@
 
-public class Correntista {
+public abstract class Correntista {
 	private static int proxCod = 1;
 	private int codigo;
 	private String nome;
@@ -10,10 +10,7 @@ public class Correntista {
 		this.nome = nome;
 	}
 	
-	public void exibiIdentificacao() 
-	{
-		System.out.println ("Eu sou um correntista: " + getCodigo() + " - " + getNome());
-	}
+	public abstract void exibiIdentificacao();
 	
 	public static int getProxCod()
 	{
