@@ -1,9 +1,9 @@
 
 public class CorrentistaFisico extends Correntista{
 	
-	public CorrentistaFisico (String nome) 
+	public CorrentistaFisico (String nome, ContaFisica conta) 
 	{
-		super(nome);
+		super(nome, conta);
 	}
 	
 	public void exibiIdentificacao() 

@@ -3,9 +3,9 @@ public class CorrentistaJuridico extends Correntista{
 	
 	private String nomeResponsavel;
 	
-	public CorrentistaJuridico (String nome, String nomeResponsavel) 
+	public CorrentistaJuridico (String nome, String nomeResponsavel, ContaJuridica conta) 
 	{
-		super(nome);
+		super(nome, conta);
 		this.nomeResponsavel = nomeResponsavel;
 	}
 	
