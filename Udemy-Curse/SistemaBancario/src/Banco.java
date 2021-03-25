@@ -12,9 +12,15 @@ public class Banco {
 		
 		CorrentistaJuridico c3 = new CorrentistaJuridico("Sys-Ala", "Alailton", new ContaJuridica());
 		listaClientes.add(c3);
-		
-		c.exibiIdentificacao();
-		c2.exibiIdentificacao();
-		c3.exibiIdentificacao();
+
+		try
+		{
+			double parcelas = c.getConta().simulaEmprestimo(12000,-3);
+			System.out.println("Parcelas: " + parcelas);	
+		}
+		catch (IllegalArgumentException e)
+		{
+			System.out.println("Digite valores validos");
+		}
 	}
 }
