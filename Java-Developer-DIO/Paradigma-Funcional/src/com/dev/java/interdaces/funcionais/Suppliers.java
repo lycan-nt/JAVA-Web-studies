@@ -2,7 +2,7 @@ package com.dev.java.interdaces.funcionais;
 
 import java.util.function.Supplier;
 
-public class Supridores {
+class Supridores {
     public static void main(String[] args) {
         Supplier<Pessoa> suppliers = () -> new Pessoa();
         System.out.println(suppliers.get());
