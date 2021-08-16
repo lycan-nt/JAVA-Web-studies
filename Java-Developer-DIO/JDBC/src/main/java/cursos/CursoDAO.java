@@ -40,4 +40,31 @@ public class CursoDAO {
 
     }
 
+    //Lista um curso especifico
+    public Curso getById(int id)
+    {
+        Curso curso = new Curso();
+
+        try (Connection connect = ConnectionFactory.getConnection())
+        {
+            PreparedStatement psmtp = connect.prepareStatement("SELECT * FROM CURSO WHERE id = ?");
+            psmtp.setInt(1, id);
+
+            ResultSet rs = psmtp.executeQuery();
+
+            if (rs.next())
+            {
+                curso.setId(rs.getInt("ID"));
+                curso.setNome(rs.getString("NOME"));
+                curso.setDuracaoHoras(rs.getInt("DURACAO_HORAS"));
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro ao busca curso");
+            e.printStackTrace();
+        }
+
+        return curso;
+    }
 }

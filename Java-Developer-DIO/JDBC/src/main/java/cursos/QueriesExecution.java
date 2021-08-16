@@ -7,7 +7,9 @@ public class QueriesExecution {
         CursoDAO cursoDAO = new CursoDAO();
 
         List<Curso> cursos = cursoDAO.list();
+        //cursos.stream().forEach(System.out::println);
 
-        cursos.stream().forEach(System.out::println);
+        Curso curso = cursoDAO.getById(1);
+        System.out.println(curso);
     }
 }

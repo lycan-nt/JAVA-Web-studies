@@ -8,11 +8,11 @@ AlunoDAO.java
  AlunoDAO
 cursos/ConnectionFactory.java
  cursos.ConnectionFactory
-cursos/QueriesExecution.java
- cursos.QueriesExecution
-QueriesExecution.java
- QueriesExecution
 cursos/Curso.java
  cursos.Curso
+QueriesExecution.java
+ QueriesExecution
+cursos/QueriesExecution.java
+ cursos.QueriesExecution
 cursos/CursoDAO.java
  cursos.CursoDAO
