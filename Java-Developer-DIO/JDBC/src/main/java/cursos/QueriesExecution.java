@@ -9,8 +9,14 @@ public class QueriesExecution {
         List<Curso> cursos = cursoDAO.list();
         //cursos.stream().forEach(System.out::println);
 
-        //1
         Curso curso = cursoDAO.getById(1);
-        System.out.println(curso);
+        //System.out.println(curso);
+
+        Curso cursoInsert = new Curso(
+          "Web",
+          360
+        );
+
+        //cursoDAO.createdCurso(cursoInsert);
     }
 }

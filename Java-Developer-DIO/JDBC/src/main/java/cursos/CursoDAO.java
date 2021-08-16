@@ -67,4 +67,26 @@ public class CursoDAO {
 
         return curso;
     }
+
+    //Inserindo cursos
+    public void createdCurso(Curso curso)
+    {
+
+        try (Connection connect = ConnectionFactory.getConnection())
+        {
+            PreparedStatement psmtp = connect.prepareStatement("INSERT INTO curso (nome, duracao_horas) VALUES (?, ?)");
+            psmtp.setString(1,curso.getNome());
+            psmtp.setInt(2, curso.getDuracaoHoras());
+
+            int linhas = psmtp.executeUpdate();
+
+            System.out.println("Inserção bem sucedidade " + linhas + " novos cursos");
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro ao cadastrar curso!");
+            e.printStackTrace();
+        }
+
+    }
 }
