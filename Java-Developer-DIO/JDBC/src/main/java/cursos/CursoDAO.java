@@ -107,4 +107,24 @@ public class CursoDAO {
 
         }
     }
+
+    //Update
+    public void update(Curso curso)
+    {
+        try (Connection connect = ConnectionFactory.getConnection())
+        {
+            PreparedStatement psmtp = connect.prepareStatement("UPDATE CURSO SET nome = ?, duracao_horas = ? WHERE id = ?");
+            psmtp.setString(1 ,curso.getNome());
+            psmtp.setInt(2, curso.getDuracaoHoras());
+            psmtp.setInt(3, curso.getId());
+
+            int linhas = psmtp.executeUpdate();
+
+            System.out.println("Curso atualizado " + linhas + " afetadas");
+        }
+        catch (Exception e)
+        {
+
+        }
+    }
 }

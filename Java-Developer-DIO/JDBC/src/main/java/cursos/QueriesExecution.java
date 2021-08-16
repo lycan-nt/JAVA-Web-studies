@@ -20,5 +20,11 @@ public class QueriesExecution {
         //cursoDAO.createdCurso(cursoInsert);
 
         //cursoDAO.delete(1);
+
+
+        Curso cursoUpdate = cursoDAO.getById(2);
+        cursoUpdate.setNome("Docker");
+        cursoDAO.update(cursoUpdate);
+
     }
 }
