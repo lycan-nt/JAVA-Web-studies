@@ -6,5 +6,13 @@ Aluno.java
  Aluno
 AlunoDAO.java
  AlunoDAO
+cursos/ConnectionFactory.java
+ cursos.ConnectionFactory
+cursos/QueriesExecution.java
+ cursos.QueriesExecution
 QueriesExecution.java
  QueriesExecution
+cursos/Curso.java
+ cursos.Curso
+cursos/CursoDAO.java
+ cursos.CursoDAO

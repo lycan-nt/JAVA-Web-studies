@@ -10,7 +10,7 @@ public class QueriesExecution {
 
         // =========================== 1 - Consulta =================================================
         List<Aluno> alunos = alunoDAO.list();
-        //alunos.stream().forEach(System.out::println);
+        alunos.stream().forEach(System.out::println);
 
         // ======================= 1.1 - Consulta com filtro ========================================
         Aluno alunoParaConsulta = alunoDAO.getById(1);
