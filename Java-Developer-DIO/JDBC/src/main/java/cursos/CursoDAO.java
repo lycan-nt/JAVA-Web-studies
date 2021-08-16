@@ -89,4 +89,22 @@ public class CursoDAO {
         }
 
     }
+
+    //Remover Curso
+    public void delete(int id)
+    {
+        try (Connection connect = ConnectionFactory.getConnection())
+        {
+            PreparedStatement psmtp = connect.prepareStatement("DELETE FROM curso WHERE id = ?");
+            psmtp.setInt(1, id);
+
+            int linhas = psmtp.executeUpdate();
+
+            System.out.println("Curso deletado " + linhas + " afetadas");
+        }
+        catch (Exception e)
+        {
+
+        }
+    }
 }

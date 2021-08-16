@@ -18,5 +18,7 @@ public class QueriesExecution {
         );
 
         //cursoDAO.createdCurso(cursoInsert);
+
+        //cursoDAO.delete(1);
     }
 }

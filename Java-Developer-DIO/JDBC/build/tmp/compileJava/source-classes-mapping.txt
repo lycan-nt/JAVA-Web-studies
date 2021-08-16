@@ -2,8 +2,8 @@ cursos/ConnectionFactory.java
  cursos.ConnectionFactory
 ConnectionFactory.java
  ConnectionFactory
-cursos/QueriesExecution.java
- cursos.QueriesExecution
+QueriesExecution.java
+ QueriesExecution
 ConnectionJDBC.java
  ConnectionJDBC
 Aluno.java
@@ -12,7 +12,7 @@ cursos/Curso.java
  cursos.Curso
 AlunoDAO.java
  AlunoDAO
-QueriesExecution.java
- QueriesExecution
+cursos/QueriesExecution.java
+ cursos.QueriesExecution
 cursos/CursoDAO.java
  cursos.CursoDAO
