@@ -1,3 +1,5 @@
+package osn.study.coesao;
+
 public class CalculadoraDeSalario {
 
     public double calcula(Funcionario funcionario) {

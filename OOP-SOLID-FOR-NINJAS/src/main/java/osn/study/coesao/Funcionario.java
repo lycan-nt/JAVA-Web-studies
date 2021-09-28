@@ -1,3 +1,5 @@
+package osn.study.coesao;
+
 public class Funcionario {
     private String nome;
     private String cargo;

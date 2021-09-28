@@ -1,3 +1,5 @@
+package osn.study.coesao;
+
 public class QuinzeOuVinteCincoPorCento implements RegraDeCalculo{
 
     public double calcula(Funcionario funcionario)

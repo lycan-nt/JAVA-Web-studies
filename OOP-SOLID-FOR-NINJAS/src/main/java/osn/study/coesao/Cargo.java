@@ -1,3 +1,5 @@
+package osn.study.coesao;
+
 public enum Cargo {
     DESENVOLVEDOR(new DezOuVintePorCento()),
     DBA(new QuinzeOuVinteCincoPorCento()),
