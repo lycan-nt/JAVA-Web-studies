@@ -1,8 +1,9 @@
 package digitalinnovation.example.restfull.controller.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.hateoas.ResourceSupport;
 
-public class SoldadoResponse {
+public class SoldadoResponse extends ResourceSupport {
     private Long id;
     private String cpf;
     private String nome;
@@ -50,10 +51,6 @@ public class SoldadoResponse {
 
     public void setArma(String arma) {
         this.arma = arma;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public String getStatus() {

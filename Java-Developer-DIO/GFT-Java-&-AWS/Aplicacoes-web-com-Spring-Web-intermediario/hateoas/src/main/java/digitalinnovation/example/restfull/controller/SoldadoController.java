@@ -51,6 +51,12 @@ public class SoldadoController {
         return ResponseEntity.ok().build();
     }
 
+    @PutMapping("/em-guarda/{id}")
+    public ResponseEntity emGuarda(@PathVariable Long id) {
+        //Emxeplo...
+        return ResponseEntity.ok().build();
+    }
+
     @GetMapping
     public ResponseEntity<Resources<SoldadoListResponse>> buscarSoldados() {
         Resources<SoldadoListResponse> soldadoListResponses = soldadoService.buscarSoldados();
