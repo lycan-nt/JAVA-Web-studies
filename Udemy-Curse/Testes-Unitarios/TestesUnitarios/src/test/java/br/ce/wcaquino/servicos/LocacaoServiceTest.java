@@ -32,7 +32,7 @@ public class LocacaoServiceTest {
 		System.out.println("Filme: " + locacao.getFilme().getNome());
 		Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataLocacao(), new Date()));
 		Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataRetorno(), DataUtils.obterDataComDiferencaDias(1)));
-		Assert.assertTrue(locacao.getValor() == 10.50);
+		Assert.assertEquals(10.50, locacao.getValor(), 0.01);
 		System.out.println("Locador: " + locacao.getUsuario().getNome());
 		System.out.println("================");
 	}
