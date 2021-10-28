@@ -3,6 +3,7 @@ package br.ce.wcaquino.servicos;
 
 import java.util.Date;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -32,7 +33,7 @@ public class LocacaoServiceTest {
 		System.out.println("Filme: " + locacao.getFilme().getNome());
 		Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataLocacao(), new Date()));
 		Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataRetorno(), DataUtils.obterDataComDiferencaDias(1)));
-		Assert.assertEquals(10.50, locacao.getValor(), 0.01);
+		Assert.assertThat(locacao.getValor(), CoreMatchers.is(10.50));
 		System.out.println("Locador: " + locacao.getUsuario().getNome());
 		System.out.println("================");
 	}
