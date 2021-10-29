@@ -3,11 +3,11 @@ package br.ce.wcaquino.servicos;
 import java.util.Date;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
-
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
@@ -17,12 +17,20 @@ import br.com.wcaquino.exceptions.LocadoraException;
 
 public class LocacaoServiceTest {
 	
+	private LocacaoService locacaoService; 
+	
 	@Rule
 	public ErrorCollector error = new ErrorCollector();
 	
 	@Rule
 	public ExpectedException expectedException = ExpectedException.none();
 	
+	@Before
+	public void setup() {
+		locacaoService = new LocacaoService();
+	}
+	
+	@SuppressWarnings("static-access")
 	@Test
 	public void teste() throws Exception {
 		//Cenário
@@ -35,7 +43,7 @@ public class LocacaoServiceTest {
 		filme.setEstoque(1);
 		
 		//Acão
-		Locacao locacao = LocacaoService.alugarFilme(usuario, filme);
+		Locacao locacao = locacaoService.alugarFilme(usuario, filme);
 		
 		//Verificação
 		error.checkThat(locacao.getValor(), CoreMatchers.is(10.50));
@@ -44,6 +52,7 @@ public class LocacaoServiceTest {
 
 	}
 	
+	@SuppressWarnings("static-access")
 	@Test(expected = FilmeSemEstoqueException.class)
 	public void testLocacao_filmeSemEstoque() throws Exception {
 		//Cenário
@@ -56,15 +65,13 @@ public class LocacaoServiceTest {
 		filme.setEstoque(0);
 				
 		//Acão
-		Locacao locacao = LocacaoService.alugarFilme(usuario, filme);
+		locacaoService.alugarFilme(usuario, filme);
 	}
 	
 	@SuppressWarnings("static-access")
 	@Test
 	public void testLocacao_usuarioVazio() throws FilmeSemEstoqueException {
 		//Cenário
-		LocacaoService locacaoService = new LocacaoService();
-		
 		Filme filme = new Filme();
 		filme.setNome("Guardiões");
 		filme.setPrecoLocacao(10.50);
