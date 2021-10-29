@@ -12,6 +12,8 @@ import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.utils.DataUtils;
+import br.com.wcaquino.exceptions.FilmeSemEstoqueException;
+import br.com.wcaquino.exceptions.LocadoraException;
 
 public class LocacaoServiceTest {
 	
@@ -42,7 +44,7 @@ public class LocacaoServiceTest {
 
 	}
 	
-	@Test(expected = Exception.class)
+	@Test(expected = FilmeSemEstoqueException.class)
 	public void testLocacao_filmeSemEstoque() throws Exception {
 		//Cenário
 		Usuario usuario = new Usuario();
@@ -57,44 +59,40 @@ public class LocacaoServiceTest {
 		Locacao locacao = LocacaoService.alugarFilme(usuario, filme);
 	}
 	
+	@SuppressWarnings("static-access")
 	@Test
-	public void testLocacao_filmeSemEstoque_2(){
+	public void testLocacao_usuarioVazio() throws FilmeSemEstoqueException {
 		//Cenário
-		Usuario usuario = new Usuario();
-		usuario.setNome("Felipe D. Santos");
-				
+		LocacaoService locacaoService = new LocacaoService();
+		
 		Filme filme = new Filme();
 		filme.setNome("Guardiões");
 		filme.setPrecoLocacao(10.50);
 		filme.setEstoque(1);
-				
-		//Acão
+		
+		//Ação
 		try {
-			Locacao locacao = LocacaoService.alugarFilme(usuario, filme);
-			Assert.fail("Deveria ter tido uma expetion");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			Assert.assertThat(e.getMessage(), CoreMatchers.is("Filme sem estoque"));
+			locacaoService.alugarFilme(null, filme);
+			Assert.fail("Aqui deveria ter ocorrido um erro");
+		}
+		catch (LocadoraException e) {
+			Assert.assertThat(e.getMessage(), CoreMatchers.is("Nenhum usuario encontrado."));
 		}
 	}
 	
+	@SuppressWarnings("static-access")
 	@Test
-	public void testLocacao_filmeSemEstoque_3() throws Exception {
+	public void testeLocacao_filmeVazio() throws FilmeSemEstoqueException, LocadoraException {
 		//Cenário
+		LocacaoService locacaoService = new LocacaoService();
 		Usuario usuario = new Usuario();
 		usuario.setNome("Felipe D. Santos");
 				
-		Filme filme = new Filme();
-		filme.setNome("Guardiões");
-		filme.setPrecoLocacao(10.50);
-		filme.setEstoque(0);
-				
-		expectedException.expect(Exception.class);
-		expectedException.expectMessage("Filme sem estoque");
+		expectedException.expect(LocadoraException.class);
+		expectedException.expectMessage("Nenhum filme contrado.");
 		
-		//Acão
-		Locacao locacao = LocacaoService.alugarFilme(usuario, filme);
+		//Ação
+		locacaoService.alugarFilme(usuario, null);
 		
-
 	}
 }

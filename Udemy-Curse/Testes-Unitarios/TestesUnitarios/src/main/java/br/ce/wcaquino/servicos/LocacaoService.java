@@ -11,14 +11,24 @@ import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.utils.DataUtils;
+import br.com.wcaquino.exceptions.FilmeSemEstoqueException;
+import br.com.wcaquino.exceptions.LocadoraException;
 
 public class LocacaoService {
 	
-	public static Locacao alugarFilme(Usuario usuario, Filme filme) throws Exception {
+	public static Locacao alugarFilme(Usuario usuario, Filme filme) throws FilmeSemEstoqueException, LocadoraException  {
+		if (filme == null) {
+			throw new LocadoraException("Nenhum filme contrado.");
+		}
 		
 		if (filme.getEstoque() == 0){
-			throw new Exception("Filme sem estoque");
+			throw new FilmeSemEstoqueException();
 		}
+		
+		if (usuario == null) {
+			throw new LocadoraException("Nenhum usuario encontrado.");
+		}
+		
 		
 		Locacao locacao = new Locacao();
 		locacao.setFilme(filme);
