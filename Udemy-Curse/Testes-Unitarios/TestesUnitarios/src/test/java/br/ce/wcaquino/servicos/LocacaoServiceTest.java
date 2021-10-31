@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
+import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -37,6 +37,8 @@ public class LocacaoServiceTest {
 	@SuppressWarnings("static-access")
 	@Test
 	public void teste() throws Exception {
+		Assume.assumeFalse(DataUtils.verificarDiaSemana(new Date(), Calendar.SATURDAY));
+		
 		//Cenário
 		List<Filme> listFilme = new ArrayList<Filme>();
 		Usuario usuario = new Usuario();
@@ -295,7 +297,8 @@ public class LocacaoServiceTest {
 	@SuppressWarnings("static-access")
 	@Test
 	public void naoDeveDevolverFilmeNoDomingo() throws FilmeSemEstoqueException, LocadoraException {
-		//Cenario
+		Assume.assumeTrue(DataUtils.verificarDiaSemana(new Date(), Calendar.SATURDAY));
+		
 		//Cenario
 		List<Filme> listFilme = new ArrayList<Filme>();
 		Usuario usuario = new Usuario();
