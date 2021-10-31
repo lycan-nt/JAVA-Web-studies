@@ -40,10 +40,35 @@ public class LocacaoService {
 	
 	private static Double calcularLocacao(List<Filme> listFilme) {
 		Double precoLocacao = 0.0;
+		Double filmeComDesconto = listFilme.size() >= 3 ? calcularDesconto(listFilme) : 0.0;
 		for (Filme filme: listFilme) {
 			precoLocacao += filme.getPrecoLocacao();
 		}
-		return precoLocacao;
+		return precoLocacao - filmeComDesconto;
+	}
+	
+	private static Double calcularDesconto(List<Filme> listFilme) {
+		Double filmeComDesconto = 0.00;
+		switch (listFilme.size()) {
+			case 3:
+				//Calcular 25%
+				filmeComDesconto = (Double) ((25.00 * listFilme.get(2).getPrecoLocacao()) / 100.00);
+				break;
+			case 4:
+				//Calcular 50%
+				filmeComDesconto = (Double) ((50.00 * listFilme.get(2).getPrecoLocacao()) / 100.00);
+				break;
+			case 5:
+				//Calcular 75%
+				filmeComDesconto = (Double) ((75.00 * listFilme.get(2).getPrecoLocacao()) / 100.00);
+				break;
+			case 6: 
+				//Calcular 100%
+				filmeComDesconto = (Double) ((100.00 * listFilme.get(2).getPrecoLocacao()) / 100.00);
+				break;
+		}
+		
+		return filmeComDesconto;
 	}
 
 }
