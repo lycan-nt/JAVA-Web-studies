@@ -22,6 +22,9 @@ public class DataUtils {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(data);
 		calendar.add(DAY_OF_MONTH, dias);
+		if (calendar.get(DAY_OF_WEEK) == Calendar.SUNDAY) {
+			calendar.add(DAY_OF_MONTH, 1);
+		}
 		return calendar.getTime();
 	}
 	

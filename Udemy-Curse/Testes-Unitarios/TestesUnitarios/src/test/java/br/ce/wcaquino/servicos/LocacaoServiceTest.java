@@ -1,6 +1,7 @@
 package br.ce.wcaquino.servicos;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -289,5 +290,28 @@ public class LocacaoServiceTest {
 		//Verificacao
 		error.checkThat(locacao.getValor(), CoreMatchers.is(50.00));
 		
+	}
+	
+	@SuppressWarnings("static-access")
+	@Test
+	public void naoDeveDevolverFilmeNoDomingo() throws FilmeSemEstoqueException, LocadoraException {
+		//Cenario
+		//Cenario
+		List<Filme> listFilme = new ArrayList<Filme>();
+		Usuario usuario = new Usuario();
+		usuario.setNome("Felipe D. Santos");
+		
+		Filme filme1 = new Filme();
+		filme1.setNome("Guardiões");
+		filme1.setPrecoLocacao(10.00);
+		filme1.setEstoque(1);
+		listFilme.add(filme1);
+		
+		//acao
+		Locacao locacao =locacaoService.alugarFilme(usuario, listFilme);
+		
+		//verificacao
+		boolean ehSegunda = DataUtils.verificarDiaSemana(locacao.getDataRetorno(), Calendar.MONDAY);
+		Assert.assertTrue(ehSegunda);
 	}
 }
