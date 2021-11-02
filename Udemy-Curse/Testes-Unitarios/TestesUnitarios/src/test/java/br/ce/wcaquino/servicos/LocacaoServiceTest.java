@@ -122,39 +122,39 @@ public class LocacaoServiceTest {
 		
 	}
 	
-	@SuppressWarnings("static-access")
-	@Test
-	public void locacaoFilmesDesconto3() throws FilmeSemEstoqueException, LocadoraException {
-		//Cenario
-		List<Filme> listFilme = new ArrayList<Filme>();
-		Usuario usuario = new Usuario();
-		usuario.setNome("Felipe D. Santos");
-		
-		Filme filme1 = new Filme();
-		filme1.setNome("Guardiões");
-		filme1.setPrecoLocacao(10.00);
-		filme1.setEstoque(1);
-		listFilme.add(filme1);
-		
-		Filme filme2 = new Filme();
-		filme2.setNome("Guardiões Da Galaxia");
-		filme2.setPrecoLocacao(10.00);
-		filme2.setEstoque(1);
-		listFilme.add(filme2);
-		
-		Filme filme3 = new Filme();
-		filme3.setNome("Hora da aventura");
-		filme3.setPrecoLocacao(10.00); //7.50 <-- Com descontp
-		filme3.setEstoque(1);
-		listFilme.add(filme3);
-		
-		//Acao
-		Locacao locacao =locacaoService.alugarFilme(usuario, listFilme);
-		
-		//Verificacao
-		error.checkThat(locacao.getValor(), CoreMatchers.is(27.50));
-		
-	}
+//	@SuppressWarnings("static-access")
+//	@Test
+//	public void locacaoFilmesDesconto3() throws FilmeSemEstoqueException, LocadoraException {
+//		//Cenario
+//		List<Filme> listFilme = new ArrayList<Filme>();
+//		Usuario usuario = new Usuario();
+//		usuario.setNome("Felipe D. Santos");
+//		
+//		Filme filme1 = new Filme();
+//		filme1.setNome("Guardiões");
+//		filme1.setPrecoLocacao(10.00);
+//		filme1.setEstoque(1);
+//		listFilme.add(filme1);
+//		
+//		Filme filme2 = new Filme();
+//		filme2.setNome("Guardiões Da Galaxia");
+//		filme2.setPrecoLocacao(10.00);
+//		filme2.setEstoque(1);
+//		listFilme.add(filme2);
+//		
+//		Filme filme3 = new Filme();
+//		filme3.setNome("Hora da aventura");
+//		filme3.setPrecoLocacao(10.00); //7.50 <-- Com descontp
+//		filme3.setEstoque(1);
+//		listFilme.add(filme3);
+//		
+//		//Acao
+//		Locacao locacao =locacaoService.alugarFilme(usuario, listFilme);
+//		
+//		//Verificacao
+//		error.checkThat(locacao.getValor(), CoreMatchers.is(27.50));
+//		
+//	}
 	
 	@SuppressWarnings("static-access")
 	@Test
