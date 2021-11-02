@@ -1,5 +1,7 @@
 package br.ce.wcaquino.servicos;
 
+import static br.ce.wcaquino.matchers.MatchersProprios.caiNumaSegunda;
+import static org.junit.Assert.assertThat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -122,178 +124,6 @@ public class LocacaoServiceTest {
 		
 	}
 	
-//	@SuppressWarnings("static-access")
-//	@Test
-//	public void locacaoFilmesDesconto3() throws FilmeSemEstoqueException, LocadoraException {
-//		//Cenario
-//		List<Filme> listFilme = new ArrayList<Filme>();
-//		Usuario usuario = new Usuario();
-//		usuario.setNome("Felipe D. Santos");
-//		
-//		Filme filme1 = new Filme();
-//		filme1.setNome("Guardiões");
-//		filme1.setPrecoLocacao(10.00);
-//		filme1.setEstoque(1);
-//		listFilme.add(filme1);
-//		
-//		Filme filme2 = new Filme();
-//		filme2.setNome("Guardiões Da Galaxia");
-//		filme2.setPrecoLocacao(10.00);
-//		filme2.setEstoque(1);
-//		listFilme.add(filme2);
-//		
-//		Filme filme3 = new Filme();
-//		filme3.setNome("Hora da aventura");
-//		filme3.setPrecoLocacao(10.00); //7.50 <-- Com descontp
-//		filme3.setEstoque(1);
-//		listFilme.add(filme3);
-//		
-//		//Acao
-//		Locacao locacao =locacaoService.alugarFilme(usuario, listFilme);
-//		
-//		//Verificacao
-//		error.checkThat(locacao.getValor(), CoreMatchers.is(27.50));
-//		
-//	}
-	
-	@SuppressWarnings("static-access")
-	@Test
-	public void locacaoFilmesDesconto4() throws FilmeSemEstoqueException, LocadoraException {
-		//Cenario
-		List<Filme> listFilme = new ArrayList<Filme>();
-		Usuario usuario = new Usuario();
-		usuario.setNome("Felipe D. Santos");
-		
-		Filme filme1 = new Filme();
-		filme1.setNome("Guardiões");
-		filme1.setPrecoLocacao(10.00);
-		filme1.setEstoque(1);
-		listFilme.add(filme1);
-		
-		Filme filme2 = new Filme();
-		filme2.setNome("Guardiões Da Galaxia");
-		filme2.setPrecoLocacao(10.00);
-		filme2.setEstoque(1);
-		listFilme.add(filme2);
-		
-		Filme filme3 = new Filme();
-		filme3.setNome("Hora da aventura");
-		filme3.setPrecoLocacao(10.00); //7.50 <-- Com descontp
-		filme3.setEstoque(1);
-		listFilme.add(filme3);
-		
-		Filme filme4 = new Filme();
-		filme4.setNome("HMatrix");
-		filme4.setPrecoLocacao(10.00); //5.00 <-- Com descontp
-		filme4.setEstoque(1);
-		listFilme.add(filme4);
-		
-		//Acao
-		Locacao locacao =locacaoService.alugarFilme(usuario, listFilme);
-		
-		//Verificacao
-		error.checkThat(locacao.getValor(), CoreMatchers.is(35.00));
-		
-	}
-	
-	@SuppressWarnings("static-access")
-	@Test
-	public void locacaoFilmesDesconto5() throws FilmeSemEstoqueException, LocadoraException {
-		//Cenario
-		List<Filme> listFilme = new ArrayList<Filme>();
-		Usuario usuario = new Usuario();
-		usuario.setNome("Felipe D. Santos");
-		
-		Filme filme1 = new Filme();
-		filme1.setNome("Guardiões");
-		filme1.setPrecoLocacao(10.00);
-		filme1.setEstoque(1);
-		listFilme.add(filme1);
-		
-		Filme filme2 = new Filme();
-		filme2.setNome("Guardiões Da Galaxia");
-		filme2.setPrecoLocacao(10.00);
-		filme2.setEstoque(1);
-		listFilme.add(filme2);
-		
-		Filme filme3 = new Filme();
-		filme3.setNome("Hora da aventura");
-		filme3.setPrecoLocacao(10.00); //7.50 <-- Com descontp
-		filme3.setEstoque(1);
-		listFilme.add(filme3);
-		
-		Filme filme4 = new Filme();
-		filme4.setNome("HMatrix");
-		filme4.setPrecoLocacao(10.00); //5.00 <-- Com descontp
-		filme4.setEstoque(1);
-		listFilme.add(filme4);
-		
-		Filme filme5 = new Filme();
-		filme5.setNome("HMatrix");
-		filme5.setPrecoLocacao(10.00); //2.5 <-- Com descontp
-		filme5.setEstoque(1);
-		listFilme.add(filme5);
-		
-		//Acao
-		Locacao locacao =locacaoService.alugarFilme(usuario, listFilme);
-		
-		//Verificacao
-		error.checkThat(locacao.getValor(), CoreMatchers.is(42.50));
-		
-	}
-	
-	@SuppressWarnings("static-access")
-	@Test
-	public void locacaoFilmesDesconto6() throws FilmeSemEstoqueException, LocadoraException {
-		//Cenario
-		List<Filme> listFilme = new ArrayList<Filme>();
-		Usuario usuario = new Usuario();
-		usuario.setNome("Felipe D. Santos");
-		
-		Filme filme1 = new Filme();
-		filme1.setNome("Guardiões");
-		filme1.setPrecoLocacao(10.00);
-		filme1.setEstoque(1);
-		listFilme.add(filme1);
-		
-		Filme filme2 = new Filme();
-		filme2.setNome("Guardiões Da Galaxia");
-		filme2.setPrecoLocacao(10.00);
-		filme2.setEstoque(1);
-		listFilme.add(filme2);
-		
-		Filme filme3 = new Filme();
-		filme3.setNome("Hora da aventura");
-		filme3.setPrecoLocacao(10.00); //7.50 <-- Com descontp
-		filme3.setEstoque(1);
-		listFilme.add(filme3);
-		
-		Filme filme4 = new Filme();
-		filme4.setNome("HMatrix");
-		filme4.setPrecoLocacao(10.00); //5.00 <-- Com descontp
-		filme4.setEstoque(1);
-		listFilme.add(filme4);
-		
-		Filme filme5 = new Filme();
-		filme5.setNome("HMatrix");
-		filme5.setPrecoLocacao(10.00); //2.5 <-- Com descontp
-		filme5.setEstoque(1);
-		listFilme.add(filme5);
-		
-		Filme filme6 = new Filme();
-		filme6.setNome("HMatrix");
-		filme6.setPrecoLocacao(10.00); //0.0 <-- Com descontp
-		filme6.setEstoque(1);
-		listFilme.add(filme6);
-		
-		//Acao
-		Locacao locacao =locacaoService.alugarFilme(usuario, listFilme);
-		
-		//Verificacao
-		error.checkThat(locacao.getValor(), CoreMatchers.is(50.00));
-		
-	}
-	
 	@SuppressWarnings("static-access")
 	@Test
 	public void naoDeveDevolverFilmeNoDomingo() throws FilmeSemEstoqueException, LocadoraException {
@@ -314,7 +144,7 @@ public class LocacaoServiceTest {
 		Locacao locacao =locacaoService.alugarFilme(usuario, listFilme);
 		
 		//verificacao
-		boolean ehSegunda = DataUtils.verificarDiaSemana(locacao.getDataRetorno(), Calendar.MONDAY);
-		Assert.assertTrue(ehSegunda);
+		assertThat(locacao.getDataRetorno(), caiNumaSegunda());
+		
 	}
 }
