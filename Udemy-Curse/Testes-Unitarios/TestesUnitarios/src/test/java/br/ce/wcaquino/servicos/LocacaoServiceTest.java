@@ -1,11 +1,16 @@
 package br.ce.wcaquino.servicos;
 
 import static br.ce.wcaquino.matchers.MatchersProprios.caiNumaSegunda;
+import static br.ce.wcaquino.matchers.MatchersProprios.ehHoje;
+import static br.ce.wcaquino.matchers.MatchersProprios.ehHojeComDiferencaDias;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Assume;
@@ -14,6 +19,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
+
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
@@ -62,10 +68,9 @@ public class LocacaoServiceTest {
 		Locacao locacao = locacaoService.alugarFilme(usuario, listFilme);
 		
 		//Verificação
-		error.checkThat(locacao.getValor(), CoreMatchers.is(21.00));
-		error.checkThat(DataUtils.isMesmaData(locacao.getDataLocacao(), new Date()), CoreMatchers.is(true));
-		error.checkThat(DataUtils.isMesmaData(locacao.getDataRetorno(), DataUtils.obterDataComDiferencaDias(1)), CoreMatchers.is(true));
-
+		error.checkThat(locacao.getValor(), is(21.00));
+		error.checkThat(locacao.getDataRetorno(), ehHojeComDiferencaDias(1));
+		error.checkThat(locacao.getDataLocacao(), ehHoje());
 	}
 	
 	@SuppressWarnings("static-access")
