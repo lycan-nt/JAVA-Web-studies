@@ -9,6 +9,8 @@ public class EntregaCartaoApp {
 
         Cliente cliente = new Cliente();
         //Dados do cliente
+        cliente.tipo = Pessoa.TipoPessoa.FISICA;
+
         try{
             cliente.adicionarEndereco(endereco);
         }catch(Exception e){
