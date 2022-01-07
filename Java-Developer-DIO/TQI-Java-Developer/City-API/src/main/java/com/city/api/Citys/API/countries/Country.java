@@ -14,7 +14,34 @@ public class Country {
     @Column(name="nome")
     private String name;
 
-    @Column(name="name_pt")
+    @Column(name="nome_pt")
     private String portugueseName;
 
+    @Column(name="sigla")
+    private String code;
+
+    private Integer bacen;
+
+    public Country() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPortugueseName() {
+        return portugueseName;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public Integer getBacen() {
+        return bacen;
+    }
 }
