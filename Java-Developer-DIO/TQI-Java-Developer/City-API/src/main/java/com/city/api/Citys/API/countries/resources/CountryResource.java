@@ -1,7 +1,7 @@
-package com.city.api.Citys.API;
+package com.city.api.Citys.API.countries.resources;
 
-import com.city.api.Citys.API.countries.Country;
-import com.city.api.Citys.API.repository.CountryRepository;
+import com.city.api.Citys.API.countries.entities.Country;
+import com.city.api.Citys.API.countries.repository.CountryRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
