@@ -16,7 +16,7 @@ public class Categoria implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	
 	private String nome;
 	private String descricao;
@@ -28,18 +28,18 @@ public class Categoria implements Serializable{
 		super();
 	}
 
-	public Categoria(int id, String nome, String descricao) {
+	public Categoria(Integer id, String nome, String descricao) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
