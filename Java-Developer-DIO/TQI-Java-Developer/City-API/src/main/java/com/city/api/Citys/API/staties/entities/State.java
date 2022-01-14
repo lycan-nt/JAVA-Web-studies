@@ -38,14 +38,12 @@ public class State {
   private Integer countryId;
 
     // 2nd - @ManyToOne
-    @ManyToOne
-    @JoinColumn(name = "pais", referencedColumnName = "id")
-    private Country country;
+//    @ManyToOne
+//    @JoinColumn(name = "pais", referencedColumnName = "id")
+//    private Country country;
 
-    @Type(type = "jsonb")
-    @Basic(fetch = FetchType.LAZY)
-    @Column(name = "ddd", columnDefinition = "jsonb")
-    private List<Integer> ddd;
+    @Column(name = "ddd")
+    private String ddd;
 
     public State() {
     }
@@ -66,15 +64,15 @@ public class State {
         return ibge;
     }
 
-    public List<Integer> getDdd() {
+    public String getDdd() {
         return ddd;
     }
 
-    public Country getCountry() {
-        return country;
-    }
+//    public Country getCountry() {
+//        return country;
+//    }
 
-  /*public Integer getCountryId() {
+  public Integer getCountryId() {
       return countryId;
-  }*/
+  }
 }
