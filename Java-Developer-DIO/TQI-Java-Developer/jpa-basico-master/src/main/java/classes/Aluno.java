@@ -2,7 +2,7 @@ package classes;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "aluno")
 public class Aluno {
 
     @Id

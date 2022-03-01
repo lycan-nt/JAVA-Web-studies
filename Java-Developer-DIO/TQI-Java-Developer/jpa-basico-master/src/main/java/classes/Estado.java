@@ -16,13 +16,13 @@ public class Estado {
 
     @Column(nullable = false)
     private String sigla;
-
-    @OneToMany(
-            mappedBy = "estado",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<Aluno> alunos = new ArrayList<>();
+//
+//    @OneToMany(
+//            mappedBy = "estado",
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true
+//    )
+//    private List<Aluno> alunos = new ArrayList<>();
 
     public Estado() { }
 
@@ -34,7 +34,7 @@ public class Estado {
     public Estado(String nome, String sigla, List<Aluno> alunos) {
         this.nome = nome;
         this.sigla = sigla;
-        this.alunos = alunos;
+        //this.alunos = alunos;
     }
 
     public int getId() {
@@ -61,13 +61,13 @@ public class Estado {
         this.sigla = sigla;
     }
 
-    public List<Aluno> getAlunos() {
-        return alunos;
-    }
+    //public List<Aluno> getAlunos() {
+       // r//eturn alunos;
+   // }
 
-    public void setAlunos(List<Aluno> alunos) {
-        this.alunos = alunos;
-    }
+    //public void setAlunos(List<Aluno> alunos) {
+    //    this.alunos = alunos;
+   // }
 
     @Override
     public String toString() {
@@ -75,7 +75,7 @@ public class Estado {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", sigla='" + sigla + '\'' +
-                ", alunos=" + alunos +
+               // ", alunos=" + alunos +
                 '}';
     }
 }

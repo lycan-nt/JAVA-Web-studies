@@ -5,62 +5,62 @@
              version="2.2">
 
     <!-- Unidade de persistencia da parte 1 do curso (Somente JPA)-->
-    <persistence-unit name="part1-DIO">
+<!--    <persistence-unit name="part1-DIO">-->
 
-        <description> Unidade de persistencia da parte 1 do tutorial basico de JPA da Digital Innovation One sem implementacoes (Somente JPA) </description>
+<!--        <description> Unidade de persistencia da parte 1 do tutorial basico de JPA da Digital Innovation One sem implementacoes (Somente JPA) </description>-->
+
+<!--        &lt;!&ndash; Classes (entidades) que serao mapeadas &ndash;&gt;-->
+<!--        <class>classes.Aluno</class>-->
+<!--        <class>classes.Estado</class>-->
+
+<!--        &lt;!&ndash; Configuracoes de conexao ao banco de dados &ndash;&gt;-->
+<!--        <properties>-->
+<!--            &lt;!&ndash; Configuracoes do banco de dados &ndash;&gt;-->
+<!--            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/dio_jpa" />-->
+<!--            <property name="javax.persistence.jdbc.user" value="root" />-->
+<!--            <property name="javax.persistence.jdbc.password" value="131216" />-->
+<!--            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />-->
+<!--        </properties>-->
+
+<!--    </persistence-unit>-->
+
+    <!-- ==========================================================================================================================  -->
+
+    <!-- Unidade de persistencia da parte 2 do curso (Com implementacao Hibernate ou EclipseLink) -->
+    <persistence-unit name="part2-DIO">
+
+        <description> Unidade de persistencia da parte 2 do tutorial basico de JPA da Digital Innovation One com implementacoes (Hibernate ou EclipseLink) </description>
+
+        <!-- Implementacao do JPA -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!--  <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> -->
 
         <!-- Classes (entidades) que serao mapeadas -->
         <class>classes.Aluno</class>
         <class>classes.Estado</class>
 
-        <!-- Configuracoes de conexao ao banco de dados -->
+        <!-- Configuracoes de conexao ao banco de dados e do Hibernate/EclipseLink -->
         <properties>
             <!-- Configuracoes do banco de dados -->
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/dio_jpa" />
             <property name="javax.persistence.jdbc.user" value="root" />
             <property name="javax.persistence.jdbc.password" value="131216" />
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+
+            <!-- Configuracoes do Hibernate (os parametros so sao reconhecidos se estiver usando a implementacao do Hibernate)-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+<!--           <property name="hibernate.hbm2ddl.auto" value="create" />  &lt;!&ndash; Possible values for hibernate.hbm2ddl.auto are: validate, update, create, create-drop &ndash;&gt;-->
+
+            <!-- Configuracoes do EclipseLink (os parametros so sao reconhecidos se estiver usando a implementacao do EclipseLink) -->
+<!--            <property name="eclipselink.target-database" value="MySQL"/>-->
+<!--            <property name="eclipselink.logging.level.sql" value="FINE" />-->
+<!--            <property name="eclipselink.logging.parameters" value="true" />-->
+<!--            <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />-->
         </properties>
 
     </persistence-unit>
-
-    <!-- ==========================================================================================================================  -->
-
-    <!-- Unidade de persistencia da parte 2 do curso (Com implementacao Hibernate ou EclipseLink) -->
-<!--    <persistence-unit name="part2-DIO">-->
-
-<!--        <description> Unidade de persistencia da parte 2 do tutorial basico de JPA da Digital Innovation One com implementacoes (Hibernate ou EclipseLink) </description>-->
-
-<!--        &lt;!&ndash; Implementacao do JPA &ndash;&gt;-->
-<!--        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
-<!--        &lt;!&ndash;  <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> &ndash;&gt;-->
-
-<!--        &lt;!&ndash; Classes (entidades) que serao mapeadas &ndash;&gt;-->
-<!--        <class>classes.Aluno</class>-->
-<!--        <class>classes.Estado</class>-->
-
-<!--        &lt;!&ndash; Configuracoes de conexao ao banco de dados e do Hibernate/EclipseLink &ndash;&gt;-->
-<!--        <properties>-->
-<!--            &lt;!&ndash; Configuracoes do banco de dados &ndash;&gt;-->
-<!--            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/digital_innovation_one" />-->
-<!--            <property name="javax.persistence.jdbc.user" value="root" />-->
-<!--            <property name="javax.persistence.jdbc.password" value="password" />-->
-<!--            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />-->
-
-<!--            &lt;!&ndash; Configuracoes do Hibernate (os parametros so sao reconhecidos se estiver usando a implementacao do Hibernate)&ndash;&gt;-->
-<!--            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />-->
-<!--            <property name="hibernate.show_sql" value="true" />-->
-<!--            <property name="hibernate.format_sql" value="true" />-->
-<!--            <property name="hibernate.hbm2ddl.auto" value="create" />  &lt;!&ndash; Possible values for hibernate.hbm2ddl.auto are: validate, update, create, create-drop &ndash;&gt;-->
-
-<!--            &lt;!&ndash; Configuracoes do EclipseLink (os parametros so sao reconhecidos se estiver usando a implementacao do EclipseLink) &ndash;&gt;-->
-<!--&lt;!&ndash;            <property name="eclipselink.target-database" value="MySQL"/>&ndash;&gt;-->
-<!--&lt;!&ndash;            <property name="eclipselink.logging.level.sql" value="FINE" />&ndash;&gt;-->
-<!--&lt;!&ndash;            <property name="eclipselink.logging.parameters" value="true" />&ndash;&gt;-->
-<!--&lt;!&ndash;            <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />&ndash;&gt;-->
-<!--        </properties>-->
-
-<!--    </persistence-unit>-->
 
 </persistence>
 
