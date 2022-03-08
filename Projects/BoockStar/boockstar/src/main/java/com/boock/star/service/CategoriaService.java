@@ -2,11 +2,10 @@ package com.boock.star.service;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.boock.star.doman.Categoria;
+import com.boock.star.dtos.CategoriaDTO;
 import com.boock.star.repositories.CategoriaRepository;
 import com.boock.star.service.exceptions.ObjectNotFoundException;
 
@@ -29,6 +28,15 @@ public class CategoriaService {
 	public Categoria create(Categoria obj) {
 		obj.setId(null);
 		return repository.save(obj);
+	}
+
+	public Categoria update(Integer id, CategoriaDTO object) {
+		System.out.println("HERE Service");
+		Categoria categoria = findById(id);
+		System.out.println("Nome: " + object.getNome());
+		categoria.setNome(object.getNome());
+		categoria.setDescricao(object.getDescricao());
+		return repository.save(categoria);
 	}
 
 }
