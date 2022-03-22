@@ -31,12 +31,15 @@ public class CategoriaService {
 	}
 
 	public Categoria update(Integer id, CategoriaDTO object) {
-		System.out.println("HERE Service");
 		Categoria categoria = findById(id);
-		System.out.println("Nome: " + object.getNome());
 		categoria.setNome(object.getNome());
 		categoria.setDescricao(object.getDescricao());
 		return repository.save(categoria);
+	}
+
+	public void delete(Integer id) {
+		findById(id);
+		repository.deleteById(id);
 	}
 
 }
