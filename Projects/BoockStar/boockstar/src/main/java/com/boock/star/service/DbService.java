@@ -21,7 +21,7 @@ public class DbService {
 		Categoria c1 = new Categoria(null, "Informatica", "TI");
 		Categoria c2 = new Categoria(null, "História", "Classica");
 		
-		Livro l1 = new Livro(null, "Clean Code", "Felipe D. Santos", "Lorem ", c1);
+		Livro l1 = new Livro(null, "Clean Code", "Felipe D. Santos", "Lorem Lorem Lorem", c1);
 		Livro l2 = new Livro(null, "A Arte Da Guerra", "História", "E melhor ser temido do que amado", c2);
 		
 		c1.getLivros().addAll(Arrays.asList(l1, l2));
