@@ -10,7 +10,6 @@ public class FieldMessage implements Serializable{
 	
 	public FieldMessage() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public FieldMessage(String filedName, String message) {
 		super();
