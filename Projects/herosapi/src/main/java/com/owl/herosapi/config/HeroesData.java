@@ -7,6 +7,7 @@ import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsyncClientBuilder;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import org.apache.commons.lang3.StringUtils;
 import org.socialsignin.spring.data.dynamodb.repository.config.EnableDynamoDBRepositories;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,32 +20,25 @@ import com.amazonaws.services.dynamodbv2.model.KeySchemaElement;
 import com.amazonaws.services.dynamodbv2.model.AttributeDefinition;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import com.amazonaws.services.dynamodbv2.document.Table;
-import static com.owl.herosapi.constans.HeroesContant.REGION_DYNAMO;
-import static com.owl.herosapi.constans.HeroesContant.ENDPOINT_DYNAMO;
 import java.util.Arrays;
+import com.amazonaws.services.dynamodbv2.document.Item;
+import com.amazonaws.services.dynamodbv2.document.PutItemOutcome;
 
-@Configuration
-@EnableDynamoDBRepositories
-public class HeroesTable {
-    public static void main(String[] args) throws Exception{
-        AmazonDynamoDB client = AmazonDynamoDBAsyncClientBuilder.standard()
-                .withClientConfiguration(new AwsClientBuilder.EndpointConfiguration(ENDPOINT_DYNAMO, REGION_DYNAMO))
+public class HeroesData {
+    public static void main(String[] args) {
+        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration())
                 .build();
 
         DynamoDB dynamoDB = new DynamoDB(client);
 
-        String tableName = "Heroes_Table";
+        Table talbe = dynamoDB.getTable("Heroes_Table");
+        Item hero = new Item()
+                .withPrimaryKey("id", 1)
+                .withString("name", "Batman")
+                .withString("universe", "code")
+                .withNumber("filmes", 3);
 
-        try {
-            Table table = dynamoDB.createTable(tableName,
-                    Arrays.asList(new KeySchemaElement("id", KeyType.HASH)),
-                    Arrays.asList(new AttributeDefinition("id", ScalarAttributeType.S)),
-                    new ProvisionedThroughput(5L,5l));
-                    table.waitForActive();
-
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        PutItemOutcome outcome = talbe.putItem(hero);
     }
 }
