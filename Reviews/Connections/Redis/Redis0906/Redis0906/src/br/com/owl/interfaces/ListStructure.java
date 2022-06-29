@@ -1,4 +1,6 @@
 package br.com.owl.interfaces;
 
-public interface ListStructure <T> {
+import br.com.owl.util.Expirable;
+
+public interface ListStructure <T> extends Expirable<T> {
 }
