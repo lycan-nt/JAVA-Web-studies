@@ -21,7 +21,7 @@ public class AuthService {
     private UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
-    @Autowired
+    @Autowired(required = false)
     private AuthenticationManager authenticationManager;
     @Autowired
     private JwtProvider jwtProvider;

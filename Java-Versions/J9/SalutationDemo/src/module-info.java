@@ -1,0 +1,3 @@
+module SalutationDemo {
+	requires SalutationOwl;
+}
