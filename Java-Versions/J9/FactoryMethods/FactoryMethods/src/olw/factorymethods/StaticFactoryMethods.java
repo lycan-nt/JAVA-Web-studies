@@ -29,7 +29,7 @@ public class StaticFactoryMethods {
         List<Integer> of3 = List.of(cem, duz);
         List<Integer> of4 = List.of(cem, duz, tre);
 
-        
+
 
     }
 
