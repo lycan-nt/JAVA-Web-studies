@@ -1,0 +1,14 @@
+/*Repositorio com instruções para cloanar e subir JasperServer-CE*/
+https://github.com/agois-inc/js-docker
+
+/*Site com as instruções para montar os arquivos de imagem do JasperServer CE*/
+https://hub.docker.com/r/agois/jasperserver-ce
+/*OBS: Apos montar os arquivos a cima dentro do diretorio basta execultar o comando: docker-compose up -d */
+
+/*Site ensinando a usar a imagem da bitmap para jasper reports CE*/
+https://programatically.com/deploy-jasperreport-server-using-docker-container/
+BitMapReporsitory: https://github.com/bitnami/bitnami-docker-jasperreports
+
+/*Duvida sobre jasperServer no stack*/
+https://stackoverflow.com/questions/59413137/jasper-server-community-edition-on-docker
+
