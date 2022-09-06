@@ -5,7 +5,7 @@ services:
   postgres:    
     image: postgres:9.5.22
     ports:
-      - "5433:5433"
+      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
@@ -21,7 +21,7 @@ services:
       - jasperserver-init      
     env_file: jasper.env
     environment:
-      - DB_HOST=postgres
+      - DB_HOST=localhost:5432/postgres
     volumes:
       - jasper_webapp:/usr/local/tomcat/webapps/jasperserver
       - jasper_home:/usr/local/share/jasperserver
@@ -42,7 +42,7 @@ services:
       - jasper_init_home:/usr/local/share/jasperserver
       - jasper_keystore:/usr/local/share/jasperserver/keystore
     environment:
-      - DB_HOST=postgres
+      - DB_HOST=localhost
       - JRS_DBCONFIG_REGEN=true
     depends_on:
       - postgres
