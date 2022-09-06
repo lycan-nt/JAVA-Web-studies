@@ -1,4 +1,4 @@
-package com.owl.system.SpringBlog;
+package com.owl.system.springblog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
