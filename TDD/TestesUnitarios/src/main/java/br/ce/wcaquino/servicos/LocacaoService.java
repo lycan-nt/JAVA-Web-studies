@@ -29,7 +29,8 @@ public class LocacaoService {
 		return locacao;
 	}
 
-	public static void main(String[] args) {
+	@Tes
+	public void teste() {
 		//Cenario
 		LocacaoService locacaoService = new LocacaoService();
 		Usuario usuario = new Usuario("User1");
