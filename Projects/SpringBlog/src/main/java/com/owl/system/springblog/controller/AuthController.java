@@ -22,6 +22,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public String login(@RequestBody LoginRequest loginRequest) {
+        System.out.println("NOT AUTHORITY");
         return authService.login(loginRequest);
     }
 

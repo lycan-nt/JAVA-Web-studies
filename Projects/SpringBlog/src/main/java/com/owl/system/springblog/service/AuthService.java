@@ -16,12 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class AuthService {
-
     @Autowired
     private UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
-
     @Autowired
     private AuthenticationManager authenticationManager;
     @Autowired
@@ -42,9 +40,9 @@ public class AuthService {
     public String login(LoginRequest loginRequest) {
         Authentication authentication = authenticationManager
                 .authenticate(new UsernamePasswordAuthenticationToken(
-                loginRequest.getUsername(),
-                loginRequest.getPassword()
-        ));
+                        loginRequest.getUsername(),
+                        loginRequest.getPassword()
+                ));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         return jwtProvider.generateToken(authentication);
     }
