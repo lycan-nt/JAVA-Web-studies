@@ -33,23 +33,7 @@ public class LocacaoServiceTest {
 
 	@Before
 	public void setup() {
-		System.out.println("Before");
 		locacaoService = new LocacaoService();
-	}
-	
-	@After
-	public void tearDown() {
-		System.out.println("After");
-	}
-	
-	@BeforeClass
-	public static void setupClass() {
-		System.out.println("Before Class");
-	}
-	
-	@AfterClass
-	public  static void tearDownClass() {
-		System.out.println("After Class");
 	}
 	
 	@Test
