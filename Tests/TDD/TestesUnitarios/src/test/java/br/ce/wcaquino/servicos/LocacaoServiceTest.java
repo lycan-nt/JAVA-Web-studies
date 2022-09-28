@@ -3,13 +3,12 @@ package br.ce.wcaquino.servicos;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
@@ -40,11 +39,13 @@ public class LocacaoServiceTest {
 	public void testeLocacao() throws Exception {
 		//Cenario
 		Usuario usuario = new Usuario("User1");
-		Filme filme = new Filme("Name", 2, 5.0);
+		List<Filme> filmeList = new ArrayList<Filme>();
+		Filme filme1 = new Filme("Name", 2, 5.0);
+		filmeList.add(filme1);
 		
 		Locacao locacao;
 		//acao
-		locacao = this.locacaoService.alugarFilme(usuario, filme);
+		locacao = this.locacaoService.alugarFilme(usuario, filmeList);
 		
 		//verificacao
 		error.checkThat(locacao.getValor(),is(equalTo(5.0)));
@@ -56,20 +57,24 @@ public class LocacaoServiceTest {
 	public void testeLocacaoFilmeSemEstoque() throws Exception {
 		//Cenario
 		Usuario usuario = new Usuario("User1");
-		Filme filme = new Filme("Name", 0, 5.0);
+		List<Filme> filmeList = new ArrayList<Filme>();
+		Filme filme1 = new Filme("Name", 0, 5.0);
+		filmeList.add(filme1);
 		
 		//acao
-		this.locacaoService.alugarFilme(usuario, filme);
+		this.locacaoService.alugarFilme(usuario, filmeList);
 	}
 	
 	@Test
 	public void testLocacaoUsuarioVazio() throws FilmeSemEstoqueException {
 		//Cenario
-		Filme filme = new Filme("Name", 1, 5.0);
+		List<Filme> filmeList = new ArrayList<Filme>();
+		Filme filme1 = new Filme("Name", 1, 5.0);
+		filmeList.add(filme1);
 		
 		//Ação
 		try {
-			this.locacaoService.alugarFilme(null, filme);
+			this.locacaoService.alugarFilme(null, filmeList);
 			Assert.fail();
 		}catch (LocadoraException e) {
 			// TODO Auto-generated catch block
