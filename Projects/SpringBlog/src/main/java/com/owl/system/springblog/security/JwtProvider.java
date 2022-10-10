@@ -1,10 +1,10 @@
 package com.owl.system.springblog.security;
 
-import com.owl.system.springblog.model.User;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -23,7 +23,7 @@ public class JwtProvider {
     public String generateToken(Authentication authentication) {
         User user = (User) authentication.getPrincipal();
         return Jwts.builder()
-                .setSubject(user.getUserName())
+                .setSubject(user.getUsername())
                 .signWith(key)
                 .compact();
     }

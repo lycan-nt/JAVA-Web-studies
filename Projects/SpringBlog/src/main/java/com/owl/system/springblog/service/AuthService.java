@@ -1,5 +1,6 @@
 package com.owl.system.springblog.service;
 
+
 import com.owl.system.springblog.dto.LoginRequest;
 import com.owl.system.springblog.dto.RegisterRequest;
 import com.owl.system.springblog.model.User;
@@ -38,12 +39,9 @@ public class AuthService {
     }
 
     public String login(LoginRequest loginRequest) {
-        Authentication authentication = authenticationManager
-                .authenticate(new UsernamePasswordAuthenticationToken(
-                        loginRequest.getUsername(),
-                        loginRequest.getPassword()
-                ));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        return jwtProvider.generateToken(authentication);
+        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),
+                loginRequest.getPassword()));
+        SecurityContextHolder.getContext().setAuthentication(authenticate);
+        return jwtProvider.generateToken(authenticate);
     }
 }
