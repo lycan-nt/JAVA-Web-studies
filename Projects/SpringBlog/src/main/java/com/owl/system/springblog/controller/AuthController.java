@@ -3,6 +3,7 @@ package com.owl.system.springblog.controller;
 import com.owl.system.springblog.dto.LoginRequest;
 import com.owl.system.springblog.dto.RegisterRequest;
 import com.owl.system.springblog.service.AuthService;
+import com.owl.system.springblog.service.AuthenticationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +23,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest loginRequest) {
-        System.out.println("NOT AUTHORITY: " + loginRequest.getUsername() + " / " + loginRequest.getPassword());
+    public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
         return authService.login(loginRequest);
     }
 
