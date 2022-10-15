@@ -52,8 +52,20 @@ public class LocacaoService {
 	
 	private double calcularTotalLocacao(List<Filme> filmes) {
 		Double total = 0.0;
-		for (Filme filme: filmes) {
-			total += filme.getPrecoLocacao(); 
+		for (int i = 0; i < filmes.size(); i++) {
+			Filme filme = filmes.get(i);
+			switch (i) {
+			case 2: total += filme.getPrecoLocacao() * 0.75;
+			break;
+			case 3: total += filme.getPrecoLocacao() * 0.5; 
+			break;
+			case 4: total += filme.getPrecoLocacao() * 0.25;
+			break;
+			case 5: total += 0;
+			break;
+			default: total += filme.getPrecoLocacao();
+			break;
+			}
 		}
 		return total;
 	}
