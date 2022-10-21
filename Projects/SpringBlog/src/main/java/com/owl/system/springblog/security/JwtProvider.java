@@ -9,34 +9,63 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.security.Key;
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.*;
+import java.security.cert.CertificateException;
 
 @Service
 public class JwtProvider {
 
-    private Key key;
+    private KeyStore keyStore;
 
     @PostConstruct
     public void init() {
-        key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+        try {
+            keyStore = KeyStore.getInstance("JKS");
+            InputStream resourceAsStream = getClass().getResourceAsStream("/springblog.jks");
+            keyStore.load(resourceAsStream, "131216".toCharArray());
+        } catch (KeyStoreException | IOException | NoSuchAlgorithmException | CertificateException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public String generateToken(Authentication authentication) {
         User user = (User) authentication.getPrincipal();
         return Jwts.builder()
                 .setSubject(user.getUsername())
-                .signWith(key)
+                .signWith(getPrivateKey())
                 .compact();
     }
 
+    private Key getPrivateKey() {
+        try {
+            return (PrivateKey) keyStore.getKey("springblog", "131216".toCharArray());
+        } catch (KeyStoreException e) {
+            throw new RuntimeException(e);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        } catch (UnrecoverableKeyException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public boolean validateToken(String jwt) {
-        Jwts.parser().setSigningKey(key).parseClaimsJws(jwt);
+        Jwts.parser().setSigningKey(getPublicKey()).parseClaimsJws(jwt);
         return true;
+    }
+
+    private PublicKey getPublicKey() {
+        try {
+            return keyStore.getCertificate("springblog").getPublicKey();
+        } catch (KeyStoreException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public String getUserNameFromJwt(String jwt) {
         Claims claims = Jwts.parser()
-                .setSigningKey(key)
+                .setSigningKey(getPublicKey())
                 .parseClaimsJws(jwt)
                 .getBody();
         return claims.getSubject();
