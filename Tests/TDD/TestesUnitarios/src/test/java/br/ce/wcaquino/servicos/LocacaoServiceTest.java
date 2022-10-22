@@ -99,58 +99,6 @@ public class LocacaoServiceTest {
 	}
 	
 	@Test
-	public void devePagar75PctNoFilme3() throws FilmeSemEstoqueException, LocadoraException {
-		//Cenario
-		Usuario usuario = new Usuario("User1");
-		List<Filme> filmes = Arrays.asList(new Filme("Filme 1", 2, 4.0), new Filme("Filme 2", 2, 4.0), new Filme("Filme 3", 2, 4.0));
-		
-		//Acao
-		Locacao locacao = locacaoService.alugarFilme(usuario, filmes);
-		
-		//Verificacao
-		Assert.assertThat(locacao.getValor(), is(11.0));
-	}
-	
-	@Test
-	public void devePagar50PctNoFilme4() throws FilmeSemEstoqueException, LocadoraException {
-		//Cenario
-		Usuario usuario = new Usuario("User1");
-		List<Filme> filmes = Arrays.asList(new Filme("Filme 1", 2, 4.0), new Filme("Filme 2", 2, 4.0), new Filme("Filme 3", 2, 4.0), new Filme("Filme 4", 2, 4.0));
-		
-		//Acao
-		Locacao locacao = locacaoService.alugarFilme(usuario, filmes);
-		
-		//Verificacao
-		Assert.assertThat(locacao.getValor(), is(13.0));
-	}
-	
-	@Test
-	public void devePagar25PctNoFilme4() throws FilmeSemEstoqueException, LocadoraException {
-		//Cenario
-		Usuario usuario = new Usuario("User1");
-		List<Filme> filmes = Arrays.asList(new Filme("Filme 1", 2, 4.0), new Filme("Filme 2", 2, 4.0), new Filme("Filme 3", 2, 4.0), new Filme("Filme 4", 2, 4.0), new Filme("Filme 5", 2, 4.0));
-		
-		//Acao
-		Locacao locacao = locacaoService.alugarFilme(usuario, filmes);
-		
-		//Verificacao
-		Assert.assertThat(locacao.getValor(), is(14.0));
-	}
-	
-	@Test
-	public void devePagar0PctNoFilme6() throws FilmeSemEstoqueException, LocadoraException {
-		//Cenario
-		Usuario usuario = new Usuario("User1");
-		List<Filme> filmes = Arrays.asList(new Filme("Filme 1", 2, 4.0), new Filme("Filme 2", 2, 4.0), new Filme("Filme 3", 2, 4.0), new Filme("Filme 4", 2, 4.0), new Filme("Filme 5", 2, 4.0), new Filme("Filme 6", 2, 4.0));
-		
-		//Acao
-		Locacao locacao = locacaoService.alugarFilme(usuario, filmes);
-		
-		//Verificacao
-		Assert.assertThat(locacao.getValor(), is(14.0));
-	}
-	
-	@Test
 	public void deveDevolverNaSegundaAoAlugarNoSabado() throws FilmeSemEstoqueException, LocadoraException {
 		Assume.assumeTrue(DataUtils.verificarDiaSemana(new Date(), Calendar.SATURDAY));
 		
