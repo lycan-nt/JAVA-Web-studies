@@ -6,6 +6,7 @@ import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -145,5 +146,17 @@ public class LocacaoServiceTest {
 		
 		//Verificacao
 		Assert.assertThat(locacao.getValor(), is(14.0));
+	}
+	
+	@Test
+	public void deveDevolverNaSegundaAoAlugarNoSabado() throws FilmeSemEstoqueException, LocadoraException {
+		//Cenario
+		Usuario usuario = new Usuario("Usuario 1");
+		List<Filme> filmes = Arrays.asList(new Filme("Filme 1", 1, 5.0));
+		//Acao
+		Locacao retorno = locacaoService.alugarFilme(usuario, filmes);
+		//Verificacao
+		Boolean ehSegunda = DataUtils.verificarDiaSemana(retorno.getDataRetorno(), Calendar.MONDAY);
+		Assert.assertTrue(ehSegunda);
 	}
 }
