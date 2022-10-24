@@ -33,7 +33,7 @@ public class WebSecurityConfig {
                 .csrf().disable().authorizeRequests()
                 .antMatchers("/api/auth/**")
                 .permitAll()
-                .antMatchers("/api/posts/all")
+                .antMatchers("/api/posts/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated();
