@@ -23,14 +23,13 @@ import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
 
 import br.ce.wcaquino.buiders.FilmeBuilder;
-import br.ce.wcaquino.buiders.UsuarioBuilder;
+import br.ce.wcaquino.daos.LocacaoDAO;
+import br.ce.wcaquino.daos.LocacaoDAOFake;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocadoraException;
-import br.ce.wcaquino.servicos.matchers.DiaSemanaMatcher;
-import br.ce.wcaquino.servicos.matchers.MatchersProprios;
 import br.ce.wcaquino.utils.DataUtils;
 
 public class LocacaoServiceTest {
@@ -45,6 +44,8 @@ public class LocacaoServiceTest {
 	@Before
 	public void setup() {
 		locacaoService = new LocacaoService();
+		LocacaoDAO locacaoDAO = new LocacaoDAOFake();
+		locacaoService.setLocacaoDAO(locacaoDAO);
 	}
 	
 	@Test
