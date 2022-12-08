@@ -21,5 +21,9 @@ public class Calculadora {
 		int result = a / b;
 		return result;
 	}
+	
+	public int divide(String a, String b) {
+		return Integer.valueOf(a) / Integer.valueOf(b);
+	}
 
 }

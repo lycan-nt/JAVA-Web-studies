@@ -66,5 +66,18 @@ public class CalculadoraTest {
 		
 		//Verificacao
 	}
+	
+	@Test
+	public void deveDividir() {
+		//Cenario
+		String a = "6";
+		String b = "3";
+		
+		//Ação
+		int result = calc.divide(a, b);
+		
+		//verificacao
+		Assert.assertEquals(2, result);
+	}
 
 }
