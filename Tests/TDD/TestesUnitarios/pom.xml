@@ -11,6 +11,14 @@
 	    <artifactId>junit</artifactId>
 	    <version>4.13.2</version>
 	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
+    <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>4.2.0</version>
+        <scope>test</scope>
+    </dependency>
 
   </dependencies>
 </project>
