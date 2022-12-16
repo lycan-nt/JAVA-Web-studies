@@ -18,6 +18,7 @@ public class LocacaoService {
 	
 	private LocacaoDAO locacaoDAO;
 	private ISPCService spcIspcService;
+	private IEmailService emailService;
 	
 	public Locacao alugarFilme(Usuario usuario, List<Filme> filmes) throws FilmeSemEstoqueException, LocadoraException   {
 		
@@ -90,6 +91,17 @@ public class LocacaoService {
 	
 	public void setSPCService(ISPCService spcService) {
 		this.spcIspcService = spcService;
+	}
+	
+	public void setEmailService(IEmailService emailService) {
+		this.emailService = emailService;
+	}
+	
+	public void notificarAtrasos() {
+		List<Locacao> locacaoPendenteList = this.locacaoDAO.obterLocacoesPendentes();
+		for (Locacao locacaoPendente: locacaoPendenteList) {
+			this.emailService.notificicarAtraso(locacaoPendente.getUsuario());
+		}
 	}
 	
 }
