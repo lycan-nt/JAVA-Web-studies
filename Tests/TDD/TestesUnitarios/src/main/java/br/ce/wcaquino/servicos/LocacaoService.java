@@ -85,17 +85,17 @@ public class LocacaoService {
 		return total;
 	}
 	
-	public void setLocacaoDAO(LocacaoDAO locacaoDAO) {
-		this.locacaoDAO = locacaoDAO;
-	}
-	
-	public void setSPCService(ISPCService spcService) {
-		this.spcIspcService = spcService;
-	}
-	
-	public void setEmailService(IEmailService emailService) {
-		this.emailService = emailService;
-	}
+//	public void setLocacaoDAO(LocacaoDAO locacaoDAO) {
+//		this.locacaoDAO = locacaoDAO;
+//	}
+//	
+//	public void setSPCService(ISPCService spcService) {
+//		this.spcIspcService = spcService;
+//	}
+//	
+//	public void setEmailService(IEmailService emailService) {
+//		this.emailService = emailService;
+//	}
 	
 	public void notificarAtrasos() {
 		List<Locacao> locacaoPendenteList = this.locacaoDAO.obterLocacoesPendentes();
