@@ -14,6 +14,8 @@ public class LocacaoBuilder {
 	
 	public LocacaoBuilder() {
 		this.locacao = new Locacao();
+		this.locacao.setDataLocacao(new Date());
+		this.locacao.setDataRetorno(DataUtils.obterDataComDiferencaDias(2));
 	}
 	
 	public LocacaoBuilder comDataRetorno(Date dateRetorno) {
@@ -26,6 +28,12 @@ public class LocacaoBuilder {
 	
 	public LocacaoBuilder comUsuario(Usuario usuario) {
 		this.locacao.setUsuario(usuario);
+		return this;
+	}
+	
+	public LocacaoBuilder atrasado() {
+		this.locacao.setDataLocacao(DataUtils.obterDataComDiferencaDias(-4));
+		this.locacao.setDataRetorno(DataUtils.obterDataComDiferencaDias(-2));
 		return this;
 	}
 	

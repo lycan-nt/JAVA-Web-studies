@@ -100,7 +100,9 @@ public class LocacaoService {
 	public void notificarAtrasos() {
 		List<Locacao> locacaoPendenteList = this.locacaoDAO.obterLocacoesPendentes();
 		for (Locacao locacaoPendente: locacaoPendenteList) {
-			this.emailService.notificicarAtraso(locacaoPendente.getUsuario());
+			if (locacaoPendente.getDataRetorno().before(new Date())) {
+				this.emailService.notificicarAtraso(locacaoPendente.getUsuario());
+			}
 		}
 	}
 	
