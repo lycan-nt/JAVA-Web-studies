@@ -197,7 +197,7 @@ public class LocacaoServiceTest {
 		Locacao locacao = new LocacaoBuilder().agora();
 		//Acao
 		this.locacaoService.prorrogarLocacao(locacao, 3);
-		//Locacao
+		//Verificação
 		ArgumentCaptor<Locacao> argCapt = ArgumentCaptor.forClass(Locacao.class);
 		Mockito.verify(this.locacaoDAO).salvar(argCapt.capture());
 		Locacao locacaoRetorno = argCapt.getValue();
