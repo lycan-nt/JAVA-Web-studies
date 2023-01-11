@@ -21,6 +21,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -35,6 +36,7 @@ import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocadoraException;
+import br.ce.wcaquino.servicos.matchers.MatchersProprios;
 import br.ce.wcaquino.utils.DataUtils;
 
 public class LocacaoServiceTest {
@@ -182,13 +184,25 @@ public class LocacaoServiceTest {
 		Usuario usuario = UsuarioBuilder.umUsuario().agora();
 		List<Filme> filmes = Arrays.asList(umFilme().agora());
 		Mockito.when(this.spcIspcService.possuiNegativacao(usuario)).thenThrow(new Exception("Erro desconhecido"));
-		
 		//Verificação
 		this.exception.expect(LocadoraException.class);
 		this.exception.expectMessage("Problemas com SPC, tente novamente.");
-		
 		//Ação
 		this.locacaoService.alugarFilme(usuario, filmes);
-		
+	}
+	
+	@Test
+	public void deveProrrogarLocacao() {
+		//Cenario
+		Locacao locacao = new LocacaoBuilder().agora();
+		//Acao
+		this.locacaoService.prorrogarLocacao(locacao, 3);
+		//Locacao
+		ArgumentCaptor<Locacao> argCapt = ArgumentCaptor.forClass(Locacao.class);
+		Mockito.verify(this.locacaoDAO).salvar(argCapt.capture());
+		Locacao locacaoRetorno = argCapt.getValue();
+		this.error.checkThat(locacaoRetorno.getValor(), is(30.0));
+		this.error.checkThat(locacaoRetorno.getDataLocacao(), MatchersProprios.ehHoje());
+		this.error.checkThat(locacaoRetorno.getDataRetorno(), MatchersProprios.ehHojeComDiferencaDias(3));
 	}
 }

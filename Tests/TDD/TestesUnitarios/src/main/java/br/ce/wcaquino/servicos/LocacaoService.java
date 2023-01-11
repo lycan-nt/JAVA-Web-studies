@@ -92,18 +92,6 @@ public class LocacaoService {
 		return total;
 	}
 	
-//	public void setLocacaoDAO(LocacaoDAO locacaoDAO) {
-//		this.locacaoDAO = locacaoDAO;
-//	}
-//	
-//	public void setSPCService(ISPCService spcService) {
-//		this.spcIspcService = spcService;
-//	}
-//	
-//	public void setEmailService(IEmailService emailService) {
-//		this.emailService = emailService;
-//	}
-	
 	public void notificarAtrasos() {
 		List<Locacao> locacaoPendenteList = this.locacaoDAO.obterLocacoesPendentes();
 		for (Locacao locacaoPendente: locacaoPendenteList) {
@@ -111,6 +99,16 @@ public class LocacaoService {
 				this.emailService.notificicarAtraso(locacaoPendente.getUsuario());
 			}
 		}
+	}
+	
+	public void prorrogarLocacao(Locacao locacao, int dias) {
+		Locacao novaLocacao = new Locacao();
+		novaLocacao.setUsuario(locacao.getUsuario());
+		novaLocacao.setFilmeList(locacao.getFilmeList());
+		novaLocacao.setDataLocacao(new Date());
+		novaLocacao.setDataRetorno(DataUtils.obterDataComDiferencaDias(dias));
+		novaLocacao.setValor(locacao.getValor() * dias);
+		this.locacaoDAO.salvar(novaLocacao);
 	}
 	
 }

@@ -16,6 +16,7 @@ public class LocacaoBuilder {
 		this.locacao = new Locacao();
 		this.locacao.setDataLocacao(new Date());
 		this.locacao.setDataRetorno(DataUtils.obterDataComDiferencaDias(2));
+		this.locacao.setValor(10.0);
 	}
 	
 	public LocacaoBuilder comDataRetorno(Date dateRetorno) {
