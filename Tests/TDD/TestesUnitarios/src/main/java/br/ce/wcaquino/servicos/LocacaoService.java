@@ -52,7 +52,14 @@ public class LocacaoService {
 	}
 	
 	private void consultarSPC(Usuario usuario) throws LocadoraException {
-		if (this.spcIspcService.possuiNegativacao(usuario)) {
+		boolean isNegativado; 
+		try {
+			isNegativado = this.spcIspcService.possuiNegativacao(usuario);
+		}
+		catch (Exception e) {
+			throw new LocadoraException("Problemas com SPC, tente novamente.");
+		}
+		if (isNegativado) {
 			throw new LocadoraException("Usuário negativado");
 		}
 	}
