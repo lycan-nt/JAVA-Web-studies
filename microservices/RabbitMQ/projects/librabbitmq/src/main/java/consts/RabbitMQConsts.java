@@ -1,4 +1,4 @@
-package com.owl.microservice.estoque.consts;
+package consts;
 
 public class RabbitMQConsts {
 

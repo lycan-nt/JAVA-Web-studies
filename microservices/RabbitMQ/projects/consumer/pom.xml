@@ -8,11 +8,11 @@
 		<version>2.7.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.owl.microservice.estoque</groupId>
-	<artifactId>estoque</artifactId>
+	<groupId>com.owl.consumer</groupId>
+	<artifactId>consumer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>estoque</name>
-	<description>Microservice Estoque Preço</description>
+	<name>consumer</name>
+	<description>Consumer microservices</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -29,13 +29,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.amqp</groupId>
-			<artifactId>spring-rabbit</artifactId>
-		</dependency>
-
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
 
 		<dependency>
@@ -43,7 +38,6 @@
 			<artifactId>librabbitmq</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>

@@ -1,9 +1,8 @@
 package com.owl.microservice.estoque.controller;
 
-import com.owl.microservice.estoque.consts.RabbitMQConsts;
-import com.owl.microservice.estoque.dto.EstoqueDTO;
-import com.owl.microservice.estoque.dto.PrecoDTO;
 import com.owl.microservice.estoque.service.RabbitMQService;
+import consts.RabbitMQConsts;
+import dto.PrecoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

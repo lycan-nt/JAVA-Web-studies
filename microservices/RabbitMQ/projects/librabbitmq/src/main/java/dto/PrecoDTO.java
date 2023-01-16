@@ -1,4 +1,4 @@
-package com.owl.microservice.estoque.dto;
+package dto;
 
 import java.io.Serializable;
 

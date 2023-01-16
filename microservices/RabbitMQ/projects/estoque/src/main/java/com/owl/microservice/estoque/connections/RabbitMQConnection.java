@@ -1,6 +1,6 @@
 package com.owl.microservice.estoque.connections;
 
-import com.owl.microservice.estoque.consts.RabbitMQConsts;
+import consts.RabbitMQConsts;
 import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.DirectExchange;
