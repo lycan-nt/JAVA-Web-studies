@@ -9,10 +9,11 @@ import org.springframework.stereotype.Component;
 public class EstoqueConsumer {
 
     @RabbitListener(queues = RabbitMQConsts.FILA_ESTOQUE)
-    private void consumidor(EstoqueDTO estoqueDTO) {
+    private void consumidor(EstoqueDTO estoqueDTO) throws InterruptedException {
         System.out.println("Código: " + estoqueDTO.codigoProduto);
         System.out.println("Estoque: " + estoqueDTO.quantidade);
         System.out.println("------------------------------------");
+        Thread.sleep(120000);
     }
 
 }
