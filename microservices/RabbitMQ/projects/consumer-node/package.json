@@ -1,0 +1,14 @@
+{
+  "name": "consumer-node",
+  "version": "1.0.0",
+  "description": "consumer microservices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Felipe D. Santos",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.10.3"
+  }
+}
