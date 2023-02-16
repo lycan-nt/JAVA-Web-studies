@@ -21,11 +21,14 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 import br.ce.wcaquino.buiders.FilmeBuilder;
 import br.ce.wcaquino.buiders.LocacaoBuilder;
@@ -39,6 +42,8 @@ import br.ce.wcaquino.exceptions.LocadoraException;
 import br.ce.wcaquino.servicos.matchers.MatchersProprios;
 import br.ce.wcaquino.utils.DataUtils;
 
+@RunWith(PowerMockRunner.class)
+@PrepareForTest({LocacaoService.class, DataUtils.class})
 public class LocacaoServiceTest {
 	
 	@InjectMocks
@@ -51,12 +56,12 @@ public class LocacaoServiceTest {
 	private IEmailService emailService;
 	
 	@Rule
-	public ErrorCollector error = new ErrorCollector();
+	public static ErrorCollector error = new ErrorCollector();
 	@Rule
-	public ExpectedException exception = ExpectedException.none();
+	public static ExpectedException exception = ExpectedException.none();
 
 	@Before
-	public void setup() {
+	public void setup(){
 		MockitoAnnotations.initMocks(this);
 	}
 	
