@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class JwtService {
 
+    private static final String SECRECT_KEY = "";
+
     public String extractUserName(String token) {
         return null;
     }
