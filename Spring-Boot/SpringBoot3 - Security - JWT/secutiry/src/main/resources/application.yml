@@ -16,3 +16,6 @@ spring:
 
   jks:
     pass: 131216
+
+  jwt:
+    expiration: 60
