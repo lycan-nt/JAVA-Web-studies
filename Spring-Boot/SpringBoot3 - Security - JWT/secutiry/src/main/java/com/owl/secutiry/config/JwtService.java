@@ -24,8 +24,8 @@ public class JwtService {
    private KeyStore keyStore;
    @Value("${jks.pass}")
    private String jksPass;
-    @Value("${jwt.expiration}")
-    private String EXPIRATION_TIME;
+   @Value("${jwt.expiration}")
+   private String EXPIRATION_TIME;
 
    @PostConstruct
    public void init() {
@@ -58,7 +58,7 @@ public class JwtService {
                .setSubject(userDetails.getUsername())
                .setIssuedAt(new Date(System.currentTimeMillis()))
                .setExpiration(getTimeExpiration())
-               .signWith(getSignInKey(), SignatureAlgorithm.HS256)
+               .signWith(getSignInKey())
                .compact();
     }
 

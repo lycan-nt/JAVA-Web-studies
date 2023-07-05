@@ -14,8 +14,8 @@ spring:
       database: postgresql
       database-platform: org.hibernate.dialect.PostgreSQLDialect
 
-  jks:
-    pass: 131216
+jks:
+  pass: 131216
 
-  jwt:
-    expiration: 60
+jwt:
+  expiration: 60
