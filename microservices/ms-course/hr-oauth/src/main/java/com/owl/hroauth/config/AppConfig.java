@@ -6,6 +6,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
+
 @Configuration
 public class AppConfig {
 
@@ -13,17 +14,17 @@ public class AppConfig {
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
-	@Bean
-	public JwtAccessTokenConverter accessTokenConverter() {
-		JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
-		jwtAccessTokenConverter.setSigningKey("MY-SECRET-KEY");
-		return jwtAccessTokenConverter;
-	}
-	
-	@Bean
-	public JwtTokenStore jwtTokenStore() {
-		return new JwtTokenStore(accessTokenConverter());
-	}
+
+//	@Bean
+//	public JwtAccessTokenConverter accessTokenConverter() {
+//		JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
+//		tokenConverter.setSigningKey("MY-SECRET-KEY");
+//		return tokenConverter;
+//	}
+
+//	@Bean
+//	public JwtTokenStore tokenStore() {
+//		return new JwtTokenStore(accessTokenConverter());
+//	}
 	
 }
