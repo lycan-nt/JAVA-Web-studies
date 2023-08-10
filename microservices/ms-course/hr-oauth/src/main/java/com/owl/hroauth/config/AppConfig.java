@@ -15,16 +15,16 @@ public class AppConfig {
 		return new BCryptPasswordEncoder();
 	}
 
-//	@Bean
-//	public JwtAccessTokenConverter accessTokenConverter() {
-//		JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
-//		tokenConverter.setSigningKey("MY-SECRET-KEY");
-//		return tokenConverter;
-//	}
+	@Bean
+	public JwtAccessTokenConverter accessTokenConverter() {
+		JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
+		tokenConverter.setSigningKey("MY-SECRET-KEY");
+		return tokenConverter;
+	}
 
-//	@Bean
-//	public JwtTokenStore tokenStore() {
-//		return new JwtTokenStore(accessTokenConverter());
-//	}
+	@Bean
+	public JwtTokenStore tokenStore() {
+		return new JwtTokenStore(accessTokenConverter());
+	}
 	
 }
