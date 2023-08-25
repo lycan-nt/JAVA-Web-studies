@@ -22,6 +22,14 @@ spring:
             - Path=/service2/**
           filters:
             - StripPrefix=1
+
+        ## Service3
+        - id: python-service
+          uri: lb://python-service
+          predicates:
+            - Path=/python-service/**
+          filters:
+            - StripPrefix=1
 server:
   port: 8080
 
