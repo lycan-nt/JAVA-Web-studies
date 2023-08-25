@@ -1,5 +1,7 @@
 package com.owl.authservice.authservice.services;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
@@ -9,6 +11,7 @@ import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
 
 @Component
 public class JwtService {
@@ -36,6 +39,37 @@ public class JwtService {
     private Key getSignKey() {
         byte[] KeyBytes = Decoders.BASE64.decode(SECRET);
         return Keys.hmacShaKeyFor(KeyBytes);
+    }
+
+    public boolean validateTokenFilter(String jwt) {
+        try {
+            Key key = getSignKey();
+            Jwts.parserBuilder()
+                    .setSigningKey(key)
+                    .build()
+                    .parse(jwt);
+            return true;
+        } catch (ExpiredJwtException e) {
+            return false;
+        }
+    }
+
+    public String extractUserName(String token) {
+        return extractClaim(token, Claims::getSubject);
+    }
+
+    public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
+        final Claims claims = extractAllClaims(token);
+        return claimsResolver.apply(claims);
+    }
+
+    private Claims extractAllClaims(String token) {
+        return Jwts
+                .parserBuilder()
+                .setSigningKey(getSignKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
     }
 
 }
