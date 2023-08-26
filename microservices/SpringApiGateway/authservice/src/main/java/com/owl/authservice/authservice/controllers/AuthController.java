@@ -32,7 +32,9 @@ public class AuthController {
         Authentication authentication = this.authenticationManager
                 .authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
         if (authentication.isAuthenticated()) {
-            return this.authService.generateToken(authRequest.getUsername());
+            String token = this.authService.generateToken(authRequest.getUsername());
+            System.out.println("TOKEN: " + token);
+            return token;
         }
         else {
             throw new RuntimeException("Invalid Access");
