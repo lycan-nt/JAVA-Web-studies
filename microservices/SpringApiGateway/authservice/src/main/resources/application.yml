@@ -1,6 +1,6 @@
 spring:
   application:
-    name: AUTH-SERVICE
+    name: auth-service
 
 eureka:
   client:

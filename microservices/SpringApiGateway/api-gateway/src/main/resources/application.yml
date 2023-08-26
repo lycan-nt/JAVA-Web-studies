@@ -24,10 +24,10 @@ spring:
             - StripPrefix=1
 
         ## Service3
-        - id: python-service
-          uri: lb://python-service
+        - id: auth-service
+          uri: lb://auth-service
           predicates:
-            - Path=/python-service/**
+            - Path=/auth-service/**
           filters:
             - StripPrefix=1
 server:
